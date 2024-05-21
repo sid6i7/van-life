@@ -1,0 +1,83 @@
+.van-detail--page {
+    padding: 50px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.van-detail--details {
+    width: 100%;
+    display: flex;
+}
+
+.van-detail--info {
+    margin-left: 50px;
+    width: 50%;
+}
+
+.van-name {
+    font-size: 40px;
+}
+
+.van-card--type {
+    height: 40px;
+    width: 120px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    color: #FFEAD0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.type-simple {
+    background-color: #E17654;
+}
+
+.type-rugged {
+    background-color: #115E59;
+}
+
+.type-luxury {
+    background-color: #161616;
+}
+
+.van-detail--price {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.van-detail--btn {
+    width: 300px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #FF8C38;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.van-detail--price > h2 {
+    margin: 0;
+}
+
+.van-detail--description {
+    width: 100%;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: justify;
+}
+
+.van-detail--img {
+    width: 50%;
+}
+
+.van-detail--back-btn {
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-decoration: underline;
+}

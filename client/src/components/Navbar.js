@@ -1,20 +1,37 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import css from "../css/Navbar.css";
 
 export const Navbar = () => {
   return (
     <header>
       <nav id="navbar">
-      <ul id="navbar--items">
-        <li id='navbar--website'>
-        <Link to={"/"}> #VANLIFE </Link>
-        </li>
-        <li>
-          <Link to={"/about"}>About</Link>
-        </li>
-        <li>Vans</li>
-      </ul>
-    </nav>
+        <ul id="navbar--items">
+          <li id='navbar--website'>
+            <NavLink
+            to={"/"}
+            className={({isActive}) => isActive ? 'navbar--active' : null}
+            > #VANLIFE </NavLink>
+          </li>
+          <li>
+            <NavLink
+            to={"/host"}
+            className={({isActive}) => isActive ? 'navbar--active' : null}
+            >Host</NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/about"}
+              className={({isActive}) => isActive ? 'navbar--active' : null}
+              >About</NavLink>
+          </li>
+          <li>
+            <NavLink 
+              to={"/vans"}
+              className={({isActive}) => isActive ? 'navbar--active' : null}
+              >Vans</NavLink>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

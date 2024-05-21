@@ -1,0 +1,36 @@
+.explore-vans-page {
+    width: 100%;
+    padding: 4cap;
+    box-sizing: border-box;
+    background-color: #FFF7ED;
+}
+
+.explore-vans--filter-btn {
+    height: 40px;
+    width: 120px;
+    font-size: 18px;
+    background-color: #FFEAD0;
+    border: none;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+
+.explore-vans--filter-clear {
+    margin-left: 30px;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.explore-vans--vans-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+@media (max-width: 600px) {
+    .explore-vans--vans-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

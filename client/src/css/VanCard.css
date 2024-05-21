@@ -1,0 +1,70 @@
+.van-card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.van-card--name {
+    font-size: 28px;
+}
+
+.van-card--img {
+    width: 100%;
+}
+
+.van-card--info {
+    display: flex;
+
+}
+
+.van-card--price {
+    display: flex;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.van-card--type {
+    height: 40px;
+    width: 120px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    color: #FFEAD0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.type-simple {
+    background-color: #E17654;
+}
+
+.type-rugged {
+    background-color: #115E59;
+}
+
+.type-luxury {
+    background-color: #161616;
+}
+
+@media (max-width: 900px) {
+    .van-card--info {
+        flex-direction: column;
+    }
+    .van-card {
+        height: 400px;
+        box-sizing: border-box;
+    }
+    .van-card--price {
+        margin-left: 0;
+        justify-content:flex-start;
+    }
+
+    .van-card--name {
+        font-size: 24px;
+    }
+}

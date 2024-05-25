@@ -1,0 +1,8 @@
+.host-van-detail--pricing {
+    font-size: 28px;
+}
+
+.host-van-detail--photos-container > img {
+    width: 150px;
+    border-radius: 10px;
+}

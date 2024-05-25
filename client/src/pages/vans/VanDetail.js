@@ -1,43 +1,50 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../../css/VanDetail.css";
 import { CircularLoadingIndicator } from "../../components/CircularLoadingIndicator";
+import { fetchVan } from "../../api/vanApi";
 
 export const VanDetail = () => {
     const { id } = useParams();
-    const [van, setVan] = useState({});
+    const [van, setVan] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    
+    const location = useLocation();
+    const search = location.state?.search || "";
+    const type = location.state?.type || "all";
 
-    const fetchVan = async () => {
-        if (!id) {
-            throw new Error("Unable to retrieve ID");
+    
+    useEffect(() => {
+        const fetchVanData = async () => {
+            setLoading(true);
+            const vanData = await fetchVan(id);
+            setVan(vanData);
         }
         try {
-            const endpoint = process.env.REACT_APP_GET_VANS_ENDPOINT;
-            const response = await fetch(`${endpoint}/${id}`);
-            if (response.ok) {
-                const vanData = await response.json();
-                console.log(vanData);
-                setVan(vanData);
-            }
-        } catch (err) {
-            console.log("Some error occured", err);
+            fetchVanData();
+        } catch(err) {
+            setError(err);
+        } finally {
+            setLoading(false);
         }
-    };
-    useEffect(() => {
-        fetchVan();
     }, []);
 
-    if (Object.keys(van).length === 0) {
+    if (loading) {
         return <CircularLoadingIndicator />;
     }
     else return (
         <div className="van-detail--page">
             <div className="van-detail--back-btn">
-            <Link to={"/vans"} >
-                🡨 Back to all vans
+            <Link
+                to={`..${search}`}
+                relative="path"
+            >
+                🡨 Back to {type} vans
             </Link>
             </div>
-            <div className="van-detail--details">
+            {
+                van && <div className="van-detail--details">
                 <img src={van.imageUrl} className="van-detail--img" />
                 <div className="van-detail--info">
 
@@ -54,6 +61,7 @@ export const VanDetail = () => {
                     <button className="van-detail--btn">Rent this van</button>
                 </div>
             </div>
+            }
 
         </div>
     );

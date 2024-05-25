@@ -1,6 +1,8 @@
 .explore-vans-page {
     width: 100%;
-    padding: 4cap;
+    margin-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
     box-sizing: border-box;
     background-color: #FFF7ED;
 }
@@ -14,12 +16,45 @@
     margin-top: 20px;
     margin-left: 30px;
     margin-bottom: 50px;
+    transition: transform 0.2s background-color 0.2s;
+    cursor: pointer;
 }
+
+.explore-vans--filter-btn:hover {
+    transform: scale(0.95);
+    color: #FFEAD0;
+}
+
+.explore-vans--filter-btn:active {
+    transform: scale(0.9);
+    background-color: #FFCF80;
+}
+
+.simple:hover, .simple.selected {
+    background-color: #E17654;
+    color: #FFEAD0;
+}
+
+.luxury:hover, .luxury.selected {
+    background-color: #161616;
+    color: #FFEAD0;
+}
+
+.rugged:hover, .rugged.selected {
+    background-color: #115E59;
+    color: #FFEAD0;
+}
+
 
 .explore-vans--filter-clear {
     margin-left: 30px;
-    text-decoration: underline;
     font-size: 18px;
+    cursor: pointer;
+}
+
+.explore-vans--filter-clear:hover {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .explore-vans--vans-container {

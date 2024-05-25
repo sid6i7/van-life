@@ -1,0 +1,19 @@
+.host-van-detail-layout--container {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.host-van-detail-layout {
+    background-color: white;
+    padding: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 10px; 
+    
+}
+
+.host-van-detail--outlet {
+    margin-top: 40px;
+    width: 60%;
+    font-size: 20px;
+}

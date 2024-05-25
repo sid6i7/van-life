@@ -1,0 +1,23 @@
+.van-card--type {
+    height: 40px;
+    width: 120px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    color: #FFEAD0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.type-simple {
+    background-color: #E17654;
+}
+
+.type-rugged {
+    background-color: #115E59;
+}
+
+.type-luxury {
+    background-color: #161616;
+}

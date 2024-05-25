@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import css from "../css/Home.css";
@@ -14,8 +15,10 @@ export const Home = () => {
             <h3 className="homepage--subtitle">
             Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip.
             </h3>
-            <button className="homepage--btn">Find your van</button>
-            
+            <Link to="vans">
+                <button className="homepage--btn">Find your van</button>
+            </Link>
+            {}
         </div>
     )
 }

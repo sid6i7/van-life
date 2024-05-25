@@ -1,0 +1,6 @@
+.host-van-detail--navbar {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}

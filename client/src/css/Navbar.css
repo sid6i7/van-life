@@ -1,10 +1,9 @@
 #navbar {
-    height: 15vh;
+    height: 100px;
     width: 100vw;
     min-height: 50px;
     background-color: #FFF7ED;
     display: flex;
-    align-items: center;
     color: #4D4D4D;
 }
 
@@ -29,11 +28,15 @@
 
 #navbar--items > li {
     display: inline-block;
+    font-size: 20px;
 }
 
 #navbar--website {
-    margin-right: auto;
-    font-family: Inter;
+    margin-right: auto;    
+}
+
+#navbar--website > a {
     font-size: 32px;
     font-weight: 900;
+    font-family: Inter;
 }

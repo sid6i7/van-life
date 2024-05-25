@@ -1,0 +1,25 @@
+.host-van-card {
+    display: flex;
+    width: 80%;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.host-van-card--img {
+    width: 20%;
+}
+
+.host-van-card--info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.host-van-card--info > h3 {
+    font-size: 24px;
+}
+
+.host-van-card--info > span {
+    font-size: 18px;
+}

@@ -12,20 +12,20 @@ export const HostLayout = () => {
         <div>
             <nav className='host--navbar'>
             <NavLink
-                to="/host"
+                to="."
                 end
                 style={({isActive}) => isActive ? activePageStyle : null}
                 >Dashboard</NavLink>
             <NavLink
-                to="/host/income"
+                to="income"
                 style={({isActive}) => isActive ? activePageStyle : null}
                 >Income</NavLink>
             <NavLink
-                to="/host/vans"
+                to="vans"
                 style={({isActive}) => isActive ? activePageStyle : null}
                 >Vans</NavLink>
             <NavLink 
-                to="/host/reviews"
+                to="reviews"
                 style={({isActive}) => isActive ? activePageStyle : null}
                 >Reviews</NavLink>
         </nav>

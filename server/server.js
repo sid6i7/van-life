@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/vans', require('./routes/vanRoutes'));
 app.use('/api/host', require('./routes/hostRoutes'));
+app.use('/api/auth', require('./routes/userRoutes') );
 
 app.listen(port, () => {
     console.log(`Server started at port ${port}`)

@@ -1,18 +1,18 @@
 const Express = require("express");
 const asyncHandler = require("express-async-handler");
-const Van = require("../models/vanModel");
 const { getVans, getVanById, updateVanById, deleteVanById, addVans } = require("../controllers/vanController");
+const {verifyUserToken} = require('../middleware/auth');
 
 const router = Express.Router();
 
-router.get("/", getVans);
+router.get("/", verifyUserToken, getVans);
 
-router.get("/:id", getVanById);
+router.get("/:id", verifyUserToken, getVanById);
 
-router.put('/', updateVanById);
+router.put('/', verifyUserToken, updateVanById);
 
-router.delete('/:id', deleteVanById);
+router.delete('/:id', verifyUserToken, deleteVanById);
 
-router.post('/', addVans);
+router.post('/', verifyUserToken, addVans);
 
 module.exports = router;

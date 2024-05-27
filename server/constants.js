@@ -1,5 +1,9 @@
-const VANS_ENDPOINT = "/vans";
+const USER_TYPES = {
+    visitor: 1,
+    host: 2,
+    admin: 3
+};
 
-module.exports.endpoints = {
-    VANS_ENDPOINT
-}
+module.exports = {
+    USER_TYPES
+};

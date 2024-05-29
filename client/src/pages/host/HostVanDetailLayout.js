@@ -1,42 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import React from "react";
+import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { REQUEST_HEADERS } from "../../constants";
 import "../../css/host/HostVanDetailLayout.css";
 import { HostVanDetailShared } from "./HostVanDetailShared";
 import { HostVanDetailNavBar } from "./HostVanDetailNavBar";
 import { fetchVan } from "../../api/vanApi";
-import { CircularLoadingIndicator } from "../../components/CircularLoadingIndicator";
+
+export const hostVanDetailLoader = async ({params}) => {
+  const {vanId} = params;
+  const vanData = await fetchVan(vanId);
+  return vanData;
+}
 
 export const HostVanDetailLayout = () => {
-  const [hostVan, setHostVan] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const { vanId } = useParams();
-
-  useEffect(() => {
-    const fetchVanData = async () => {
-      setLoading(true);
-      const vanData = await fetchVan(vanId);
-      setHostVan(vanData);
-    }
-    try {
-      fetchVanData();
-    } catch (err) {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  }, [vanId]);
-
-  if(loading) {
-    return <CircularLoadingIndicator/>
-  }
-
-  if (error) {
-    <h1>Could not fetch van, try refreshing</h1>
-  }
+  
+  const hostVan = useLoaderData();
+  const {vanId} = useParams();
   
   return (
     <div className="host-van-detail-layout--container">
@@ -47,7 +26,7 @@ export const HostVanDetailLayout = () => {
         {hostVan && <HostVanDetailShared hostVan={hostVan} />}
         <HostVanDetailNavBar vanId={vanId} />
         <div className="host-van-detail--outlet">
-          {hostVan && <Outlet context={[hostVan, setHostVan]} />}
+          {hostVan && <Outlet context={[hostVan]} />}
         </div>
       </div>
     </div>

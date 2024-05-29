@@ -5,9 +5,9 @@ const {verifyUserToken} = require('../middleware/auth');
 
 const router = Express.Router();
 
-router.get("/", verifyUserToken, getVans);
+router.get("/", getVans);
 
-router.get("/:id", verifyUserToken, getVanById);
+router.get("/:id", getVanById);
 
 router.put('/', verifyUserToken, updateVanById);
 

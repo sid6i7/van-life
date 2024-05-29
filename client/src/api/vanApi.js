@@ -1,6 +1,8 @@
 import { REQUEST_HEADERS } from "../constants";
+import { getToken } from "../utils/auth";
 
 export const fetchVans = async () => {
+  
   const url = process.env.REACT_APP_GET_VANS_ENDPOINT;
   if (!url) {
     throw new Error("Could not retrive get vans endpoint");
@@ -8,7 +10,10 @@ export const fetchVans = async () => {
   let response;
   try {
     response = await fetch(url, {
-      headers: REQUEST_HEADERS,
+      headers: {
+        ...REQUEST_HEADERS,
+        'Authorization': `Bearer ${getToken()}`
+      },
     });
     if (response.ok) {
       const responseData = await response.json();
@@ -16,7 +21,21 @@ export const fetchVans = async () => {
       return responseData;
     }
   } catch(err) {
-    throw err;
+      console.log(err);
+      if(!response) {
+        throw {
+          message: "Failed to fetch vans",
+          statusText: "Server might be down",
+          status: 503
+        };
+      }
+      else {
+        throw {
+          message: "Failed to fetch vans",
+          statusText: response.statusText,
+          status: response.status
+        };
+      }
   }
 };
 
@@ -24,9 +43,10 @@ export const fetchVan = async (id) => {
   if (!id) {
       throw new Error("Unable to retrieve ID");
   }
+  let response;
   try {
       const endpoint = process.env.REACT_APP_GET_VANS_ENDPOINT;
-      const response = await fetch(`${endpoint}/${id}`);
+      response = await fetch(`${endpoint}/${id}`);
       if (response.ok) {
           const vanData = await response.json();
           // console.log(vanData);
@@ -34,7 +54,11 @@ export const fetchVan = async (id) => {
       }
   } catch (err) {
       console.log("Some error occured", err);
-      throw err;
+      throw {
+        message: "Failed to fetch van",
+        statusText: response.statusText,
+        status: response.status
+      };
   }
 };
 

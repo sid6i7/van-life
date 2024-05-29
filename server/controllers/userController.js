@@ -24,10 +24,7 @@ const register = asyncHandler(async (req, res) => {
     }
 
     let payload = {
-        email: user.email,
-        name: user.name,
         id: user._id,
-        user_type: user.user_type
     };
 
     const token = jwt.sign(
@@ -39,6 +36,7 @@ const register = asyncHandler(async (req, res) => {
 
 const login = asyncHandler(async (req, res) => {
     const {email, password} = req.body;
+
     try {
         const user = await User.findOne({email});
         if(!user) {
@@ -51,13 +49,11 @@ const login = asyncHandler(async (req, res) => {
         }
 
         let payload = {
-            email: user.email,
-            name: user.name,
             id: user._id,
-            user_type: user.user_type
         };
 
         const token = jwt.sign(payload, process.env.TOKEN_SECRET);
+        console.log(token);
         res.status(200).header("auth-token", token).send({"token": token});
 
     } catch(err) {
@@ -65,7 +61,27 @@ const login = asyncHandler(async (req, res) => {
     }
 })
 
+const getUser = asyncHandler(async (req, res) => {
+    let token = req.headers.authorization;
+
+    if(!token) {
+        res.status(400);
+        throw new Error("Unauthorized");
+    }
+    token = token.split(" ")[1];
+    
+    const {id} = jwt.decode(token);
+    let user = await User.findById(id).select(['-password', '-_id']);
+    if(!user) {
+        res.status(401);
+        throw new Error("Could not find user");
+    }
+
+    res.status(200).json(user);
+})
+
 module.exports = {
     register,
-    login
+    login,
+    getUser
 }

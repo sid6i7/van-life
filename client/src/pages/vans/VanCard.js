@@ -4,7 +4,6 @@ import "../../css/VanCard.css";
 export const VanCard = ({ id, name, price, imageUrl, type }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');
-  console.log(typeFilter);
 
   return (
     <div className="van-card">

@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import { Footer } from "../components/Footer";
-import { Navbar } from "../components/Navbar";
-import css from "../css/Home.css";
 import bg from "../images/home_bg.jpg";
 
 export const Home = () => {
@@ -18,7 +15,6 @@ export const Home = () => {
             <Link to="vans">
                 <button className="homepage--btn">Find your van</button>
             </Link>
-            {}
         </div>
     )
 }

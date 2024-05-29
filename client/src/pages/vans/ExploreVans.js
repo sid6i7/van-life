@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
-import { REQUEST_HEADERS } from "../../constants";
 import { VanCard } from "./VanCard";
 import "../../css/ExploreVans.css";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLoaderData } from "react-router-dom";
 import { fetchVans } from "../../api/vanApi";
-import { CircularLoadingIndicator } from "../../components/CircularLoadingIndicator";
+
+export const vanLoader = () => {
+  const data = fetchVans();
+  return data;
+}
 
 export const ExploreVans = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [type, setType] = useState(searchParams.get("type"));
-  const [vans, setVans] = useState([]);
   const [filteredVans, setFilteredVans] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const vans = useLoaderData();
 
   const handleVanFiltering = (vanType) => {
     if (vanType) {
@@ -34,27 +36,13 @@ export const ExploreVans = () => {
   };
 
   useEffect(() => {
-    async function loadVans() {
-        setLoading(true);
-        try {
-          const data = await fetchVans();
-          setVans(data);
-        } catch(err) {
-          console.log("Some error occured", err);
-          setError(err);
-        }
-        setLoading(false);
-    }
-    loadVans();
-  }, []);
-
-  useEffect(() => {
     handleVanFiltering(type);
   }, [vans, type]);
 
   if(error) {
     return <h1>There was an error: {error.message}</h1>
   }
+  
   return (
     <div className="explore-vans-page">
       <h1 className="explore-vans--title">Explore our van options</h1>
@@ -92,7 +80,7 @@ export const ExploreVans = () => {
           </span>
         )}
       </div>
-      {!loading ? <div className="explore-vans--vans-container">
+      <div className="explore-vans--vans-container">
         {filteredVans ?
           filteredVans.map((van) => {
             return (
@@ -106,7 +94,7 @@ export const ExploreVans = () => {
               />
             );
           }) : <h1>No vans found</h1>}
-      </div> : <CircularLoadingIndicator/>}
+      </div> 
     </div>
   );
 };

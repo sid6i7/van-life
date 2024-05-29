@@ -1,4 +1,4 @@
-.login {
+.register {
     height: 100%;
     width: 100vw;
     display: flex;
@@ -7,14 +7,14 @@
     align-items: center;
 }
 
-.login--form {
+.register--form {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
 }
 
-.login--input {
+.input {
     height: 30px;
     width: 25%;
     border: 1px solid grey;
@@ -24,7 +24,7 @@
     padding: 5px;
 }
 
-.login--btn {
+.register--btn {
     margin-top: 30px;
     height: 40px;
     width: 30%;
@@ -35,7 +35,7 @@
     font-weight: bold;
 }
 
-.login--no-account > a {
+.already-registered > a {
     color: #FF8C38;
     font-weight: bold;
 }

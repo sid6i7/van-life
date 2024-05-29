@@ -1,0 +1,28 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.error > pre {
+    font-size: 18px;
+}
+
+.error > button {
+    
+    height: 40px;
+    width: 20%;
+    font-size: 18px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.error-img {
+    width: 250px;
+}

@@ -33,7 +33,7 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to={"login"}
+              to={"profile"}
               className={({isActive}) => isActive ? 'navbar--active' : null}
             >
               <CgProfile size={'30px'}/>

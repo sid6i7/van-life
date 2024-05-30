@@ -1,8 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import css from "../css/Navbar.css";
 import { CgProfile } from "react-icons/cg";
+import { RiLoginCircleLine } from "react-icons/ri";
+import { isAuthenticated } from "../utils/auth";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
-export const Navbar = () => {
+export const Navbar = ({isLoggedIn}) => {
+
   return (
     <header>
       <nav id="navbar">
@@ -15,7 +20,7 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink
-            to={"host"}
+            to={"host/1"} //TODO: implement hostId
             className={({isActive}) => isActive ? 'navbar--active' : null}
             >Host</NavLink>
           </li>
@@ -33,10 +38,10 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to={"profile"}
+              to={isLoggedIn ? "profile" : "login"}
               className={({isActive}) => isActive ? 'navbar--active' : null}
             >
-              <CgProfile size={'30px'}/>
+              {isLoggedIn ? <CgProfile size={'30px'}/> : <RiLoginCircleLine size={'30px'}/>}
             </NavLink>
           </li>
         </ul>

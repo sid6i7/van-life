@@ -1,5 +1,11 @@
 import {NavLink, Outlet} from 'react-router-dom';
 import "../../css/Host.css";
+import { requireAuth } from '../../utils/auth';
+
+export const hostLayoutLoader = async ({ request }) => {
+    requireAuth(request);
+    return null;
+}
 
 export const HostLayout = () => {
     const activePageStyle = {

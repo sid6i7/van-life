@@ -20,6 +20,13 @@ export const login = async (email, password) => {
         if (response.ok) {
             const responseData = await response.json();
             localStorage.setItem('token', responseData.token);
+        } else {
+            const responseData = await response.json();
+            throw {
+                message: responseData.message,
+                statusText: response.statusText,
+                status: responseData.status
+            };
         }
     } catch(error) {
         throw error;
@@ -28,7 +35,7 @@ export const login = async (email, password) => {
 
 export const getUser = async () => {
     let token = getToken();
-    console.log(token);
+    // console.log(token);
     if(!token) {
         return null;
     }
@@ -47,7 +54,7 @@ export const getUser = async () => {
         )
         if(response.ok) {
             const user = await response.json();
-            console.log('works')
+            // console.log('works')
             return user;
         }
     }  catch(err) {

@@ -1,6 +1,5 @@
 .host-van-detail-layout--container {
-    margin-left: 50px;
-    margin-top: 50px;
+    margin: 50px;
 }
 
 .host-van-detail-layout {
@@ -9,11 +8,12 @@
     margin-left: 50px;
     margin-right: 50px;
     border-radius: 10px; 
-    
+    box-shadow: 2px 2px 8px 0px;
+    width: 60%;
 }
 
 .host-van-detail--outlet {
     margin-top: 40px;
-    width: 60%;
+    width: 100%;
     font-size: 20px;
 }

@@ -5,7 +5,7 @@ export const HostVanDetail = (props) => {
   const [hostVan, setHostVan] = useOutletContext();
 
   return (
-    <div>
+    <div className="host-van-detail">
       <p><b>Name: </b>{hostVan.name}</p>
       <p><b>Category: </b>{hostVan.type}</p>
       <p><b>Description: </b>{hostVan.description}</p>

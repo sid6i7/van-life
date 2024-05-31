@@ -11,7 +11,7 @@ export const VanCard = ({ id, name, price, imageUrl, type }) => {
         search: `?${searchParams.toString()}`,
         type: typeFilter
       }}>
-        <img src={imageUrl} className="van-card--img" />
+        <img src={imageUrl} className="van-card--img"/>
         <div className="van-card--info">
           <h2 className="van-card--name">{name}</h2>
           <span className="van-card--price">

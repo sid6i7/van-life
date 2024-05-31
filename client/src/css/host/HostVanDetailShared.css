@@ -1,7 +1,7 @@
 
 .host-van-detail--container {
     display: flex;
-    width: 80%;
+    width: 100%;
 }
 
 .host-van-detail--container > img {

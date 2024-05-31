@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import css from "../css/About.css";
@@ -6,7 +7,7 @@ import manImg from "../images/about_img.jpg";
 export const About = () => {
   return (
     <div className="aboutpage">
-       
+
       <img src={manImg} className="aboutpage--img" />
       <div className="aboutpage--body">
         <h1>Don’t squeeze in a sedan when you could relax in a van.</h1>
@@ -24,12 +25,14 @@ export const About = () => {
             Your destination is waiting. <br />
             Your van is ready.
           </h2>
-          <button>
-            Explore our vans
-          </button>
+          <Link to={"../vans"}>
+            <button>
+              Explore our vans
+            </button>
+          </Link>
         </div>
       </div>
-     
+
     </div>
   );
 };

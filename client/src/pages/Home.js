@@ -5,7 +5,7 @@ export const Home = () => {
     return (
         <div className="homepage">
             
-            <img className="homepage--bg" src={bg}/>
+            <img className="homepage--bg" src={bg} loading="lazy"/>
             <h1 className="homepage--title">
             You got the travel plans, we got the travel vans.
             </h1>

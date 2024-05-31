@@ -1,9 +1,13 @@
 .van-card {
-    text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 95%;
+}
+
+.van-card > a {
+    text-decoration: none;
 }
 
 .van-card--name {
@@ -11,8 +15,18 @@
 }
 
 .van-card--img {
-    width: 100%;
+    width: 90%;
+    border-radius: 5px;
+    transition: all 0.5s;
 }
+
+.van-card--img:hover {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid brown;
+}
+
+
 
 .van-card--info {
     display: flex;

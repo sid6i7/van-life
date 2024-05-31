@@ -29,6 +29,13 @@
 #navbar--items > li {
     display: inline-block;
     font-size: 20px;
+    transition: all 0.5s ease;
+}
+
+#navbar--items > li:hover {
+    font-size: 25px;
+    color: black;
+
 }
 
 #navbar--website {
@@ -39,4 +46,10 @@
     font-size: 32px;
     font-weight: 900;
     font-family: Inter;
+    transition: all 0.5s ease;
+}
+
+#navbar--website > a:hover {
+    font-size: 35px;
+    color: orange;
 }

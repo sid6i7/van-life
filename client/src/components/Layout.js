@@ -12,7 +12,7 @@ export const Layout = () => {
     return (
         <div className="layout">
             <Navbar isLoggedIn={isLoggedIn}/>
-            <Outlet context={[isLoggedIn, setIsLoggedIn]}/>
+            <Outlet context={[isLoggedIn, setIsLoggedIn]} className="layout--outlet"/>
             <Footer/>
         </div>
     )

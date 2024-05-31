@@ -3,7 +3,7 @@ import css from "../css/Footer.css";
 export const Footer = () => {
     return (
         <footer className="footer">
-            Ⓒ 2022 #VANLIFE
+            Ⓒ 2024 #VANLIFE
         </footer>
     )
 }
